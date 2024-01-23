@@ -1,0 +1,34 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Editor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Image Editor</h1>
+    {% if image_id %}
+        <div id="images-container">
+            <div class="image-container" data-image-id="{{ image_id }}">
+                <img id ="base-image" src="{{ url_for('get_image', image_id=image_id) }}">
+                <canvas id="overlay-canvas"></canvas>
+            </div>
+            <div id="segmented-images-container">
+                <!-- <img src="/get_masked_image/98242/0?t=1702605817026">
+                <img src="/get_masked_image/98242/1?t=1702605817026">
+                <img src="/get_masked_image/98242/2?t=1702605817026"> -->
+            </div>
+        </div>
+
+        <button id="submit-points">Submit Points</button>
+        <button id="clear-points">Clear Points</button>
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    {% else %}
+        <form method="post" enctype="multipart/form-data">
+            <input type="file" name="file">
+            <input type="submit" value="Upload">
+        </form>
+    {% endif %}
+</body>
+</html>

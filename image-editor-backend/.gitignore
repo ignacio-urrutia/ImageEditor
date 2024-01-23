@@ -1,0 +1,29 @@
+# .gitignore
+
+# Ignore the virtual environment
+venv/
+
+# Ignore the images folder
+images/
+
+# Ignore Flask cache files
+__pycache__/
+
+# Ignore IDE files
+.vscode/
+.idea/
+
+# Ignore compiled Python files
+*.pyc
+
+# Ignore log files
+*.log
+
+# Ignore database files
+*.db
+
+# Ignore environment variables file
+.env
+
+# Ignore the SAM model
+model/
